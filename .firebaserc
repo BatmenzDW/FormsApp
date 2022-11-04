@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "kanbanfire-3975b": {
+      "hosting": {
+        "forms-app": [
+          "kanbanfire-3975b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "kanbanfire-3975b"
+  }
+}
