@@ -16,10 +16,13 @@ import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AppRoutingModule } from './app-routing.module';
+import { WorkOrderComponent } from './work-order/work-order.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TaskComponent, TaskDialogComponent],
+  declarations: [AppComponent, TaskComponent, TaskDialogComponent, WorkOrderComponent, DashboardComponent],
   imports: [
     BrowserModule,
     MatToolbarModule,
@@ -32,7 +35,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
