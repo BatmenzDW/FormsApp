@@ -41,7 +41,7 @@ export class DashboardComponent {
         if (!result) {
           return;
         }
-        this.store.collection('todo').add(result.task);
+        this.store.collection('todo').add(result.task); //Database call
       });
   }
 

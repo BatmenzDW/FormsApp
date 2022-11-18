@@ -1,18 +1,59 @@
-<form #addItemForm="ngForm">
-    <label for="fname">InvoiceID:</label><br>
-    <input type="text" id="invoiceID" 
-    #name="ngModel"
-    name="invoiceID"
-    [(ngModel)]="workOrderModel.invoiceID"><br>
+<br>
+<label for="fname"> InvoiceID: </label>
+<input type="text" id="invoiceID" 
+#name="ngModel"
+name="invoiceID"
+[(ngModel)]="workOrderModel.invoiceID">
 
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname">
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-    <label for="vehicle1"> I have a bike</label><br>
-    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-    <label for="vehicle2"> I have a car</label><br>
-    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-    <label for="vehicle3"> I have a boat</label>
+<label for="lname"> Last name: </label>
+<input type="text" id="lname" name="lname"><br>
+<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<label for="vehicle1"> I have a bike</label>
+<input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+<label for="vehicle2"> I have a car</label>
+<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+<label for="vehicle3"> I have a boat</label>
+<br/>
+<table>
+    <tr>
+    <th width="100px;">Quantity</th>
+    <th width="100px;">Description</th>
+    <th width="100px;">Price</th>
+    <th width="100px;">Amount</th>
+    </tr>
+    <tr *ngFor="let row of rows" >
+        <td *ngIf="row.id === editRowId">
+            <input type="number" [(ngModel)]="row.quantity" />
+        </td>
+        <td *ngIf="row.id !== editRowId">
+            {{row.quantity}}
+        </td>
+        <td *ngIf="row.id === editRowId">
+            <input type="text" [(ngModel)]="row.description" />
+        </td>
+        <td *ngIf="row.id !== editRowId">
+            {{row.description}}
+        </td>
+        <td *ngIf="row.id === editRowId">
+            <input type="number" [(ngModel)]="row.price" />
+        </td>
+        <td *ngIf="row.id !== editRowId">
+            {{row.price}}
+        </td>
+        <td *ngIf="row.id === editRowId">
+            <input type="number" [(ngModel)]="row.amount" />
+        </td>
+        <td *ngIf="row.id !== editRowId">
+            {{row.amount}}
+        </td>
+        <td>
+            <button #row.id (click)="toggle(row.id)">Edit</button>
+        </td>
+    </tr>
+</table>
+<button (click)="addMaterial()">Add Material</button>
+<hr/>
+<b>Current value of array</b>
+<pre>{{rows | json}}</pre>
 
-    <button (click)="onSave()">Save</button>
-</form> 
+<button (click)="onSave()">Save</button>

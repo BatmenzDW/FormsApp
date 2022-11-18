@@ -12,14 +12,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { WorkOrderComponent } from './work-order/work-order.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
 
 @NgModule({
   declarations: [AppComponent, TaskComponent, TaskDialogComponent, WorkOrderComponent, DashboardComponent],
@@ -33,6 +32,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserAnimationsModule,

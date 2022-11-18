@@ -8,17 +8,37 @@ import { Component, OnInit } from '@angular/core';
 export class WorkOrderComponent implements OnInit {
 
   workOrderModel = new WorkOrder();
-  materialModel = new Material();
   otherModel = new OtherCharges();
   laborModel = new Labor();
 
-  constructor() { }
+  constructor() {
+    this.rows = [];
+  }
 
   ngOnInit(): void {
   }
 
   onSave(): void {
     console.log("Saving Work Order");
+  }
+
+  rows: any[] = [];
+  showEditable: boolean = false;
+  editRowId: any;
+
+  addMaterial() {
+    let indexForId = this.rows.length + 1
+    this.rows.push({
+      id: indexForId,
+      quantity: 0,
+      description: 'description',
+      price: 0,
+      amount: 0
+    })
+  }
+
+  toggle(val: any) {
+    this.editRowId = val;
   }
 
 }
@@ -52,15 +72,6 @@ export class WorkOrder {
     public tax: number = 0,
     public total: number = 0,
     // TODO: Add Digital Signature field
-  ) {}
-}
-
-export class Material {
-  constructor(
-    public quantity: number = 0,
-    public description: string = '',
-    public price: number = 0,
-    public amount: number = 0
   ) {}
 }
 
