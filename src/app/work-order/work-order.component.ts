@@ -28,6 +28,7 @@ export class WorkOrderComponent implements OnInit {
     this.databaseUpdate.subscribe((value: Task) => {
       this.workOrderModel = this.nullOrder(value);
       this.nullComponents();
+      this.dateConvert();
     });
   }
 
@@ -38,6 +39,18 @@ export class WorkOrderComponent implements OnInit {
 
   showEditable: boolean = false;
   editRowId: any;
+
+  timeToDate(time: any) {
+    var date = new Date(time.seconds * 1000);
+    var datestring = date.toISOString();
+    return datestring;
+  }
+
+  dateConvert() {
+    this.workOrderModel.date = this.timeToDate(this.workOrderModel.date);
+    this.workOrderModel.startingDate = this.timeToDate(this.workOrderModel.startingDate);
+    this.workOrderModel.dateCompleted = this.timeToDate(this.workOrderModel.dateCompleted);
+  }
 
   nullList(list: any){
     if (list === null)
@@ -128,7 +141,7 @@ export class WorkOrder {
     public id?: string,
     public invoiceID: number = 0,
     public phone: string = 'phone',
-    public date: number = 0,
+    public date: any = '2000-01-01T05:00:00.000Z',
     public takenBy: string = 'taken By',
     public orderNum: string = 'orderNum',
     public dayWorkBol: boolean = false,
@@ -137,10 +150,10 @@ export class WorkOrder {
     public jobName: string = 'jobName',
     public jobLocation: string = 'jobLocation',
     public jobPhone: string = 'jobPhone',
-    public startingDate: string = '2000-01-01T05:00:00.000Z',
+    public startingDate: any = '2000-01-01T05:00:00.000Z',
     public jobTo: string = 'jobTo',
     public jobDescription: string = 'jobDescription',
-    public dateCompleted: string = '2000-01-01T05:00:00.000Z',
+    public dateCompleted: any = '2000-01-01T05:00:00.000Z',
     public totalMaterials: number = 0,
     public totalOther: number = 0,
     public totalLabor: number = 0,

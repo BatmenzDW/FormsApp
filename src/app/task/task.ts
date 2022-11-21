@@ -3,6 +3,7 @@ export interface Task {
     invoiceID: number;
     jobName: string;
     phone: string;
+    date: any;
     takenBy: string;
     orderNum: string;
     dayWorkBol: boolean;
@@ -10,10 +11,10 @@ export interface Task {
     extraBol: boolean;
     jobLocation: string;
     jobPhone: string;
-    startingDate: string;
+    startingDate: any;
     jobTo: string;
     jobDescription: string;
-    dateCompleted: string;
+    dateCompleted: any;
     totalMaterials: number;
     totalOther: number;
     totalLabor: number;
