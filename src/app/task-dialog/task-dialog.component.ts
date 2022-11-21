@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Task } from '../task/task';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-dialog',
@@ -12,12 +13,18 @@ export class TaskDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: TaskDialogData
+    @Inject(MAT_DIALOG_DATA) public data: TaskDialogData, 
+    private router: Router
   ) {}
 
   cancel(): void {
-    this.data.task.title = this.backupTask.title;
-    this.data.task.description = this.backupTask.description;
+    this.data.task.id = this.backupTask.id;
+    this.data.task.jobName = this.backupTask.jobName;
+    this.dialogRef.close(this.data);
+  }
+
+  edit(): void {
+    this.router.navigate(['/work-order', {id: this.data.task.id, list: this.data.list}]);
     this.dialogRef.close(this.data);
   }
 }
@@ -25,6 +32,7 @@ export class TaskDialogComponent {
 export interface TaskDialogData {
   task: Partial<Task>;
   enableDelete: boolean;
+  list: 'done' | 'todo' | 'inProgress';
 }
 
 export interface TaskDialogResult {

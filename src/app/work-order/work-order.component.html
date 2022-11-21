@@ -82,33 +82,33 @@
     <th width="100px;">Price</th>
     <th width="100px;">Amount</th>
     </tr>
-    <tr *ngFor="let row of this.workOrderModel.materials" >
-        <td *ngIf="row.id === editRowId">
-            <input type="number" [(ngModel)]="row.quantity" />
+    <tr *ngFor="let rowID of this.workOrderModel.materialIDs" >
+        <td *ngIf="rowID === editRowId">
+            <input type="number" [(ngModel)]="workOrderModel.materialQuantities[rowID]" />
         </td>
-        <td *ngIf="row.id !== editRowId">
-            {{row.quantity}}
+        <td *ngIf="rowID !== editRowId">
+            {{workOrderModel.materialQuantities[rowID]}}
         </td>
-        <td *ngIf="row.id === editRowId">
-            <input type="text" [(ngModel)]="row.description" />
+        <td *ngIf="rowID === editRowId">
+            <input type="text" [(ngModel)]="workOrderModel.materialDescriptions[rowID]" />
         </td>
-        <td *ngIf="row.id !== editRowId">
-            {{row.description}}
+        <td *ngIf="rowID !== editRowId">
+            {{workOrderModel.materialDescriptions[rowID]}}
         </td>
-        <td *ngIf="row.id === editRowId">
-            <input type="number" [(ngModel)]="row.price" />
+        <td *ngIf="rowID === editRowId">
+            <input type="number" [(ngModel)]="workOrderModel.materialPrices[rowID]" />
         </td>
-        <td *ngIf="row.id !== editRowId">
-            {{row.price}}
+        <td *ngIf="rowID !== editRowId">
+            {{workOrderModel.materialPrices[rowID]}}
         </td>
-        <td *ngIf="row.id === editRowId">
-            <input type="number" [(ngModel)]="row.amount" />
+        <td *ngIf="rowID === editRowId">
+            <input type="number" [(ngModel)]="workOrderModel.materialAmounts[rowID]" />
         </td>
-        <td *ngIf="row.id !== editRowId">
-            {{row.amount}}
+        <td *ngIf="rowID !== editRowId">
+            {{workOrderModel.materialAmounts[rowID]}}
         </td>
         <td>
-            <button #row.id (click)="toggle(row.id)">Edit</button>
+            <button #rowID (click)="toggle(rowID)">Edit</button>
         </td>
     </tr>
     <tr>
@@ -145,21 +145,21 @@
     <th width="100px;">Description</th>
     <th width="100px;">Price</th>
     </tr>
-    <tr *ngFor="let row of this.workOrderModel.otherCharges" >
-            <td *ngIf="row.id === editRowId">
-                <input type="text" [(ngModel)]="row.description" />
+    <tr *ngFor="let rowID of this.workOrderModel.otherIDs" >
+            <td *ngIf="rowID === editRowId">
+                <input type="text" [(ngModel)]="workOrderModel.otherDescriptions[rowID]" />
             </td>
-            <td *ngIf="row.id !== editRowId">
-                {{row.description}}
+            <td *ngIf="rowID !== editRowId">
+                {{workOrderModel.otherDescriptions[rowID]}}
             </td>
-            <td *ngIf="row.id === editRowId">
-                <input type="number" [(ngModel)]="row.price" />
+            <td *ngIf="rowID === editRowId">
+                <input type="number" [(ngModel)]="workOrderModel.otherPrices[rowID]" />
             </td>
-            <td *ngIf="row.id !== editRowId">
-                {{row.price}}
+            <td *ngIf="rowID !== editRowId">
+                {{workOrderModel.otherPrices[rowID]}}
             </td>
             <td>
-                <button #row.id (click)="toggle(row.id)">Edit</button>
+                <button #rowID (click)="toggle(rowID)">Edit</button>
             </td>
         </tr>
         <tr>
@@ -181,33 +181,33 @@
     <th width="100px;">Rate</th>
     <th width="100px;">Amount</th>
     </tr>
-    <tr *ngFor="let row of this.workOrderModel.labor" >
-        <td *ngIf="row.id === editRowId">
-            <input type="text" [(ngModel)]="row.description" />
+    <tr *ngFor="let rowID of this.workOrderModel.laborIDs" >
+        <td *ngIf="rowID === editRowId">
+            <input type="text" [(ngModel)]="workOrderModel.laborDescriptions[rowID]" />
         </td>
-        <td *ngIf="row.id !== editRowId">
-            {{row.description}}
+        <td *ngIf="rowID !== editRowId">
+            {{workOrderModel.laborDescriptions[rowID]}}
         </td>
-        <td *ngIf="row.id === editRowId">
-            <input type="number" [(ngModel)]="row.hrs" />
+        <td *ngIf="rowID === editRowId">
+            <input type="number" [(ngModel)]="workOrderModel.laborHrs[rowID]" />
         </td>
-        <td *ngIf="row.id !== editRowId">
-            {{row.hrs}}
+        <td *ngIf="rowID !== editRowId">
+            {{workOrderModel.laborHrs[rowID]}}
         </td>
-        <td *ngIf="row.id === editRowId">
-            <input type="number" [(ngModel)]="row.rate" />
+        <td *ngIf="rowID === editRowId">
+            <input type="number" [(ngModel)]="workOrderModel.laborRates[rowID]" />
         </td>
-        <td *ngIf="row.id !== editRowId">
-            {{row.rate}}
+        <td *ngIf="rowID !== editRowId">
+            {{workOrderModel.laborRates[rowID]}}
         </td>
-        <td *ngIf="row.id === editRowId">
-            <input type="number" [(ngModel)]="row.amount" />
+        <td *ngIf="rowID === editRowId">
+            <input type="number" [(ngModel)]="workOrderModel.laborAmounts[rowID]" />
         </td>
-        <td *ngIf="row.id !== editRowId">
-            {{row.amount}}
+        <td *ngIf="rowID !== editRowId">
+            {{workOrderModel.laborAmounts[rowID]}}
         </td>
         <td>
-            <button #row.id (click)="toggle(row.id)">Edit</button>
+            <button #rowID (click)="toggle(rowID)">Edit</button>
         </td>
     </tr>
     <tr>

@@ -6,6 +6,7 @@ import { TaskDialogResult, TaskDialogComponent } from '../task-dialog/task-dialo
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 const getObservable = (collection: AngularFirestoreCollection<Task>) => {
   const subject = new BehaviorSubject<Task[]>([]);
@@ -26,7 +27,7 @@ export class DashboardComponent {
   inProgress = getObservable(this.store.collection('inProgress')) as Observable<Task[]>;
   done = getObservable(this.store.collection('done')) as Observable<Task[]>;
 
-  constructor(private dialog: MatDialog, private store: AngularFirestore) {}
+  constructor(private dialog: MatDialog, private store: AngularFirestore, private router: Router) {}
 
   newTask(): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
@@ -50,6 +51,7 @@ export class DashboardComponent {
       width: '270px',
       data: {
         task,
+        list,
         enableDelete: true,
       },
     });
