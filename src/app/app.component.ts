@@ -87,4 +87,13 @@ export class AppComponent {
       event.currentIndex
     );
   }
+  ngOnInit() //does this work?
+  {
+    this.getAll()
+  }
+  getAll(){
+    this.store.collection('userInfo').snapshotChanges().subscribe((response) => {
+      console.log('reponse ', response);
+    })
+  }
 }
