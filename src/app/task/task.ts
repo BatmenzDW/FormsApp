@@ -1,6 +1,36 @@
 export interface Task {
     id?: string;
-    title: string;
-    description: string;
+    invoiceID: number;
+    jobName: string;
+    phone: string;
+    date: any;
+    takenBy: string;
+    orderNum: string;
+    dayWorkBol: boolean;
+    contractBol: boolean;
+    extraBol: boolean;
+    jobLocation: string;
+    jobPhone: string;
+    startingDate: any;
+    jobTo: string;
+    jobDescription: string;
+    dateCompleted: any;
+    totalMaterials: number;
+    totalOther: number;
+    totalLabor: number;
+    tax: number;
+    total: number;
+    materialIDs: number[];
+    materialQuantities: number[];
+    materialDescriptions: string[];
+    materialPrices: number[];
+    materialAmounts: number[];
+    otherIDs: number[];
+    otherDescriptions: string[];
+    otherPrices: number[];
+    laborIDs: number[];
+    laborDescriptions: string[];
+    laborHrs: number[];
+    laborRates: number[];
+    laborAmounts: number[];
   }
-  

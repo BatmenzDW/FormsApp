@@ -1,16 +1,16 @@
 <mat-form-field>
-    <mat-label>Title</mat-label>
-    <input matInput cdkFocusInitial [(ngModel)]="data.task.title" />
+    <mat-label>Invoice ID</mat-label>
+    <input matInput cdkFocusInitial [(ngModel)]="data.task.invoiceID" />
   </mat-form-field>
-  
   <mat-form-field>
-    <mat-label>Description</mat-label>
-    <textarea matInput [(ngModel)]="data.task.description"></textarea>
+    <mat-label>Job Name</mat-label>
+    <input matInput cdkFocusInitial [(ngModel)]="data.task.jobName" />
   </mat-form-field>
-  
+
   <div mat-dialog-actions>
     <button mat-button [mat-dialog-close]="{ task: data.task }">OK</button>
     <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-button (click)="edit()">Edit</button>
     <button
     *ngIf="data.enableDelete"
     mat-fab
