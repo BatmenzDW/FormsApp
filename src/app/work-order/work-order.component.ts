@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Task } from '../task/task';
 import { Observable } from 'rxjs';
 
@@ -18,27 +18,41 @@ export class WorkOrderComponent implements OnInit {
   databaseDocument: any;
   databaseUpdate: any;
 
-  constructor(private store: AngularFirestore, private route: ActivatedRoute) {}
+  constructor(private store: AngularFirestore, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    this.workOrderModel.id = this.nullString(this.route.snapshot.paramMap.get('id'));
+    if (this.route.snapshot.paramMap.get('id') != null) {
+    this.workOrderModel.exists = true;
+    this.workOrderModel.id = this.route.snapshot.paramMap.get('id');
     this.list = this.nullList(this.route.snapshot.paramMap.get('list'));
-    this.databaseDocument = this.store.doc<Task>(`${this.list}/${this.route.snapshot.paramMap.get('id')}`);
+    this.databaseDocument = this.store.doc<Task>(`${this.list}/${this.workOrderModel.id}`);
     this.databaseUpdate = this.databaseDocument.valueChanges();
-    this.databaseUpdate.subscribe((value: Task) => {
-      this.workOrderModel = this.nullOrder(value);
-      this.nullComponents();
-      this.dateConvert();
-    });
+      this.databaseUpdate.subscribe((data: Task) => {
+        this.workOrderModel = this.nullOrder(data);
+        this.nullComponents();
+        this.dateConvert();
+      });
+    }
   }
 
-  onSave(): void {
-    console.log("Saving Work Order");
-    this.store.collection(this.list).doc(this.workOrderModel.id).update(this.workOrderModel);
+  onSave(task : Task): void {
+    //console.log("Saving Work Order");
+    if (this.workOrderModel.exists) {
+      this.store.collection(this.list).doc(this.nullString(this.workOrderModel.id)).update(this.workOrderModel);
+    } else {
+      //console.log("New Work Order");
+      task = JSON.parse(JSON.stringify(this.workOrderModel));
+      this.list = 'todo';
+      //console.log(typeof task);
+      this.store.collection(this.list).add(task);
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   showEditable: boolean = false;
   editRowId: any;
+
+
 
   timeToDate(time: any) {
     var date = new Date(time.seconds * 1000);
@@ -86,7 +100,7 @@ export class WorkOrderComponent implements OnInit {
 
   nullString(val: any) {
     if (val === null)
-      return ''
+      return ""
     else
       return val
   }
@@ -138,28 +152,28 @@ export class WorkOrderComponent implements OnInit {
 export class WorkOrder {
 
   constructor(
-    public id?: string,
-    public invoiceID: number = 0,
-    public phone: string = 'phone',
-    public date: any = '2000-01-01T05:00:00.000Z',
-    public takenBy: string = 'taken By',
-    public orderNum: string = 'orderNum',
+    public exists: boolean = false,
+    public id?: string | null,
+    public invoiceID?: number,
+    public phone?: string,
+    public date?: any,
+    public takenBy?: string,
+    public orderNum?: string,
     public dayWorkBol: boolean = false,
     public contractBol: boolean = false,
     public extraBol: boolean = false,
-    public jobName: string = 'jobName',
-    public jobLocation: string = 'jobLocation',
-    public jobPhone: string = 'jobPhone',
-    public startingDate: any = '2000-01-01T05:00:00.000Z',
-    public jobTo: string = 'jobTo',
-    public jobDescription: string = 'jobDescription',
-    public dateCompleted: any = '2000-01-01T05:00:00.000Z',
-    public totalMaterials: number = 0,
-    public totalOther: number = 0,
-    public totalLabor: number = 0,
-    public tax: number = 0,
-    public total: number = 0,
-    // TODO: Add Digital Signature field
+    public jobName?: string,
+    public jobLocation?: string,
+    public jobPhone?: string,
+    public startingDate?: any,
+    public jobTo?: string,
+    public jobDescription?: string,
+    public dateCompleted?: any,
+    public totalMaterials?: number,
+    public totalOther?: number,
+    public totalLabor?: number,
+    public tax?: number,
+    public total?: number,
     public materialIDs: number[] = [],
     public materialQuantities: number[] = [],
     public materialDescriptions: string[] = [],
