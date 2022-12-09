@@ -45,15 +45,22 @@ mat-toolbar {
   .cdk-drag-placeholder {
     opacity: 0;
   }
-  
+
   a:link, a:visited {
     color: (internal value);
       text-decoration: underline;
       cursor: auto;
       float: left;
       width: 10%;
+      color: white;
     }
     
+  .link {
+    display:inline;
+    margin-right: 4em;
+    margin-left: 2em;
+  }
+
     a:link:active, a:visited:active {
       color: (internal value);
     }

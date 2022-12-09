@@ -13,15 +13,3 @@ export const environment = {
  }
 };
 
-// export const environment = {
-//   firebase: {
-//     projectId: 'elecform-b6dcb',
-//     appId: '1:988873675031:web:9198a7de77542325d56752',
-//     databaseURL: 'https://elecform-b6dcb-default-rtdb.firebaseio.com',
-//     storageBucket: 'elecform-b6dcb.appspot.com',
-//     locationId: 'us-central',
-//     apiKey: 'AIzaSyCQ9HL7hRbv-T19sz48jldjV5jg5dmkVsg',
-//     authDomain: 'elecform-b6dcb.firebaseapp.com',
-//     messagingSenderId: '988873675031',
-//   }
-// };
