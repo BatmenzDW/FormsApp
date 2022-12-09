@@ -22,3 +22,4 @@ const getObservable = (collection: AngularFirestoreCollection<Task>) => {
 })
 
 export class AppComponent {}
+
