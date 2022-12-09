@@ -1,81 +1,99 @@
 <br>
-<label for="invoiceID"> Invoice ID: </label>
-<input type="text" id="invoiceID" 
-    #name="ngModel" name="invoiceID"
-    [(ngModel)]="workOrderModel.invoiceID"><br>
+<div class="Contact">
+  <table class="Contact" [cellSpacing]="0">
+    <tr>
+      <td><input type="text" id="invoiceID"
+          #name="ngModel" name="invoiceID"
+          [(ngModel)]="workOrderModel.invoiceID"
+          style="width: 100%; box-sizing: border-box;"
+          placeholder="Invoice ID (number)"></td>
 
-<label for="phone"> Phone: </label>
-<input type="text" id="phone" 
-    #name="ngModel" name="phone"
-    [(ngModel)]="workOrderModel.phone">
-
-<label for="date"> Date of Order: </label>
-<mat-form-field appearance="fill" hintLabel="MM/DD/YYYY">
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="datePicker" id="date"
-        #name="ngModel" name="date"
-        [(ngModel)]="workOrderModel.date">
-    <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
-    <mat-datepicker #datePicker></mat-datepicker>
-</mat-form-field><br>
-
-<label for="takenBy"> Taken By: </label>
-<input type="text" id="takenBy" 
-    #name="ngModel" name="takenBy"
-    [(ngModel)]="workOrderModel.takenBy">
-
-<label for="orderNum"> Order Number: </label>
-<input type="text" id="orderNum"
-    #name="ngModel" name="orderNum"
-    [(ngModel)]="workOrderModel.orderNum"><br>
-
-<input type="checkbox" id="dayWorkBol" 
-    #name="ngModel" name="dayWorkBol" 
-    [(ngModel)]="workOrderModel.dayWorkBol">
-<label for="dayWorkBol"> Day Work</label>
-
-<input type="checkbox" id="contractBol" 
-    #name="ngModel" name="contractBol" 
-    [(ngModel)]="workOrderModel.contractBol">
-<label for="contractBol"> Contract</label>
-
-<input type="checkbox" id="extraBol" 
-    #name="ngModel" name="extraBol" 
-    [(ngModel)]="workOrderModel.extraBol">
-<label for="extraBol"> Extra</label><br>
-
-<label for="jobName"> Job Name/Number: </label>
-<input type="text" id="jobName"
-    #name="ngModel" name="jobName"
-    [(ngModel)]="workOrderModel.jobName"><br>
-
-<label for="jobLocation"> Job Location: </label>
-<input type="text" id="jobLocation"
-    #name="ngModel" name="jobLocation"
-    [(ngModel)]="workOrderModel.jobLocation"><br>
-
-<label for="jobPhone"> Job Phone: </label>
-<input type="text" id="jobPhone"
-    #name="ngModel" name="jobPhone"
-    [(ngModel)]="workOrderModel.jobPhone">
-
-<label for="startingDate"> Starting Date: </label>
-<mat-form-field appearance="fill" hintLabel="MM/DD/YYYY">
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="startPicker" id="startingDate"
-        #name="ngModel" name="startingDate"
-        [(ngModel)]="workOrderModel.startingDate">
-    <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
-    <mat-datepicker #startPicker></mat-datepicker>
-</mat-form-field><br>
-
-<label for="jobTo"> To: </label>
-<input type="text" id="jobTo"
-    #name="ngModel" name="jobTo"
-    [(ngModel)]="workOrderModel.jobTo"><br>
-
+      <td><input type="text" id="phone"
+          #name="ngModel" name="phone"
+          [(ngModel)]="workOrderModel.phone"
+          style="width: 100%; box-sizing: border-box;"
+          placeholder="Phone #"></td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field appearance="fill" hintLabel="MM/DD/YYYY">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="startPicker" id="startingDate"
+            #name="ngModel" name="startingDate"
+            [(ngModel)]="workOrderModel.startingDate"
+            style="width: 100%">
+        <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+        </mat-form-field></td>
+      <td>
+        <mat-form-field appearance="fill" hintLabel="MM/DD/YYYY">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="datePicker" id="date"
+            #name="ngModel" name="date"
+            [(ngModel)]="workOrderModel.date"
+            style="width: 100%">
+        <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+        <mat-datepicker #datePicker></mat-datepicker>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td><input type="text" id="orderNum"
+        #name="ngModel" name="orderNum"
+        [(ngModel)]="workOrderModel.orderNum"
+        style="width: 100%; box-sizing: border-box;"
+        placeholder="Order #"></td>
+      <td><input type="text" id="takenBy"
+        #name="ngModel" name="takenBy"
+        [(ngModel)]="workOrderModel.takenBy"
+        style="width: 100%; box-sizing: border-box;"
+        placeholder="Taken By"></td>
+    </tr>
+    <tr class="checkBoxes">
+      <td colspan="2">
+      <input type="checkbox" id="dayWorkBol"
+        #name="ngModel" name="dayWorkBol"
+        [(ngModel)]="workOrderModel.dayWorkBol">
+        <label for="dayWorkBol"> Day Work</label>
+      <input type="checkbox" id="contractBol"
+        #name="ngModel" name="contractBol"
+        [(ngModel)]="workOrderModel.contractBol">
+        <label for="contractBol"> Contract</label>
+      <input type="checkbox" id="extraBol"
+        #name="ngModel" name="extraBol"
+        [(ngModel)]="workOrderModel.extraBol">
+        <label for="extraBol"> Extra</label>
+      </td>
+    </tr>
+    <tr>
+      <td><input type="text" id="jobName"
+        #name="ngModel" name="jobName"
+        [(ngModel)]="workOrderModel.jobName"
+        style="width: 100%; box-sizing: border-box;"
+        placeholder="Job Name/#"></td>
+      <td><input type="text" id="jobLocation"
+        #name="ngModel" name="jobLocation"
+        [(ngModel)]="workOrderModel.jobLocation"
+        style="width: 100%; box-sizing: border-box;"
+        placeholder="Job Location"></td>
+    </tr>
+    <tr>
+      <td><input type="text" id="jobPhone"
+        #name="ngModel" name="jobPhone"
+        [(ngModel)]="workOrderModel.jobPhone"
+        style="width: 100%; box-sizing: border-box;"
+        placeholder="Job Phone #"></td>
+      <td><input type="text" id="jobTo"
+        #name="ngModel" name="jobTo"
+        [(ngModel)]="workOrderModel.jobTo"
+        style="width: 100%"
+        style="width: 100%; box-sizing: border-box;"
+        placeholder="To"></td>
+    </tr>
+  </table>
+</div>
 <br/>
-<table>
+<table class="t1">
     <tr>
     <th width="100px;">Quantity</th>
     <th width="100px;">Description</th>
@@ -113,7 +131,7 @@
     </tr>
     <tr>
         <td>
-            <label for="dateCompleted"> Date Completed: </label>
+            <!-- <label for="dateCompleted"> Date Completed: </label>
             <mat-form-field appearance="fill" hintLabel="MM/DD/YYYY">
                 <mat-label>Choose a date</mat-label>
                 <input matInput [matDatepicker]="endPicker" iid="dateCompleted"
@@ -121,7 +139,7 @@
                     [(ngModel)]="workOrderModel.dateCompleted">
                 <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
                 <mat-datepicker #endPicker></mat-datepicker>
-            </mat-form-field><br>
+            </mat-form-field><br> -->
         </td>
         <td></td>
         <td></td>
@@ -140,7 +158,7 @@
     #name="ngModel" name="jobDescription"
     [(ngModel)]="workOrderModel.jobDescription"><br>
 
-<table>
+<table class="t2">
     <tr>
     <th width="100px;">Description</th>
     <th width="100px;">Price</th>
@@ -174,7 +192,7 @@
 </table>
 <button (click)="addOther()">Add Other</button><br>
 
-<table>
+<table class="t3">
     <tr>
     <th width="100px;">Description</th>
     <th width="100px;">Hours</th>
@@ -267,7 +285,7 @@
     </tr>
 </table>
 <button (click)="addLabor()">Add Labor</button><br>
-<button (click)="onSave()">Save</button>
+<button (click)="onSave(workOrderModel)">Save</button>
 <hr/>
 <b>Current value of array</b>
 <pre>{{this.workOrderModel | json}}</pre>

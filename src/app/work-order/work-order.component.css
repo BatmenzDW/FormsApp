@@ -1,7 +1,38 @@
 table, th, td {
-    border:1px solid gray;
+    border:3px solid gray;
 }
 
+.Contact {
+  float: right;
+  text-align: center;
+  width: 550px;
+}
+
+table.t1 td, table.t2 td, table.t3 td {
+  width: 300px;
+}
+
+table.t2 td {
+  height: 100px;
+}
+
+table.Contact {
+  table-layout: fixed;
+}
+
+table.Contact th {
+  min-width: 10px;
+  max-width: 100%;
+  width: 100%;
+}
+
+table.Contact td {
+  width: 100%;
+}
+
+table.Contact input {
+  text-align: center;
+}
 mat-form-field {
     margin-right: 12px;
     width: 100px;
