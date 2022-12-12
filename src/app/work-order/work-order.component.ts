@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   templateUrl: './work-order.component.html',
   styleUrls: ['./work-order.component.css']
 })
+
 export class WorkOrderComponent implements OnInit {
 
   workOrderModel = new WorkOrder();
@@ -116,31 +117,31 @@ export class WorkOrderComponent implements OnInit {
   addMaterial() {
     let indexForId = this.workOrderModel.materialIDs.length + 1
     this.workOrderModel.materialIDs.push(indexForId);
-    this.workOrderModel.materialDescriptions.push('');
-    this.workOrderModel.materialQuantities.push(0);
-    this.workOrderModel.materialPrices.push(0);
-    this.workOrderModel.materialAmounts.push(0);
+    this.workOrderModel.materialDescriptions.push();
+    this.workOrderModel.materialQuantities.push();
+    this.workOrderModel.materialPrices.push();
+    this.workOrderModel.materialAmounts.push();
   }
 
   addOther() {
     let indexForId = this.workOrderModel.otherIDs.length + 1
     this.workOrderModel.otherIDs.push(indexForId);
-    this.workOrderModel.otherDescriptions.push('');
-    this.workOrderModel.otherPrices.push(0);
+    this.workOrderModel.otherDescriptions.push();
+    this.workOrderModel.otherPrices.push();
     }
 
   addLabor() {
     let indexForId = this.workOrderModel.laborIDs.length + 1
     this.workOrderModel.laborIDs.push(indexForId);
-    this.workOrderModel.laborDescriptions.push('');
-    this.workOrderModel.laborHrs.push(0);
-    this.workOrderModel.laborRates.push(0);
-    this.workOrderModel.laborAmounts.push(0);
+    this.workOrderModel.laborDescriptions.push();
+    this.workOrderModel.laborHrs.push();
+    this.workOrderModel.laborRates.push();
+    this.workOrderModel.laborAmounts.push();
   }
 
-  toggle(val: any) {
-    this.editRowId = val;
-  }
+  // toggle(val: any) {
+  //   this.editRowId = val;
+  // }
 
 }
 
@@ -193,11 +194,11 @@ export class WorkOrder {
 
 export class Material {
   constructor(
-    public id: number = 0,
-    public quantity: number = 0,
-    public description: string = '',
-    public price: number = 0,
-    public amount: number = 0
+    public id: number,
+    public quantity: number,
+    public description: string,
+    public price: number,
+    public amount: number
   ) {}
 }
 

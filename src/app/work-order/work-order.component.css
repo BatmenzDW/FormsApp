@@ -1,19 +1,40 @@
-table, th, td {
-    border:3px solid gray;
+table,
+th,
+td {
+  border: 3px solid gray;
+  text-align: center;
 }
 
 .Contact {
   float: right;
   text-align: center;
   width: 550px;
+  top: 90px;
+  position: relative;
+  right: 25px;
 }
 
-table.t1 td, table.t2 td, table.t3 td {
+table.t1 th,
+table.t2 th,
+table.t3 th {
+  font-size: 24px;
+  padding: 0.3em;
+  background:rgb(35, 157, 245);
+  font-style:italic;
+  color:rgba(255, 255, 255, 0.825);
+}
+table.t1 td,
+table.t2 td,
+table.t3 td {
   width: 300px;
+  height: 50px;
+  border-collapse: collapse;
+  padding: 0.3em;
 }
 
 table.t2 td {
   height: 100px;
+  width: 616px;
 }
 
 table.Contact {
@@ -33,7 +54,54 @@ table.Contact td {
 table.Contact input {
   text-align: center;
 }
+
 mat-form-field {
-    margin-right: 12px;
-    width: 100px;
+  margin-right: 12px;
+  width: 100px;
 }
+
+.addRow {
+  color: rgba(255, 255, 255, 0.665);
+  background-color: rgb(35, 157, 245);
+  border: 2px solid #00743a;
+  border-radius: 0px;
+  padding: 18px 36px;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 24px;
+  letter-spacing: 5px;
+  /* affects button enclosing effect */
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #00743a;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+  position: relative;
+  left: 530px;
+}
+
+.addRow:hover {
+  box-shadow: inset 0 0 0 50px #00743a;
+}
+
+.save {
+  color: rgba(255, 255, 255, 0.665);
+  background-color: rgb(35, 157, 245);
+  border: 2px solid #00743a;
+  border-radius: 0px;
+  padding: 18px 36px;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 40px;
+  cursor: pointer;
+  transition: ease-out 0.4s;
+  float: right;
+  bottom: 570px;
+  position: relative;
+  right: 170px;
+  text-align: center;
+  width: 300px;
+}
+.save:hover {
+  box-shadow: inset 0 0 0 50px #00743a;
+}
+
+@media all and (max-width:30em) {}
