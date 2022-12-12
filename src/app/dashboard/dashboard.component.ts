@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { __values } from 'tslib';
 import { MatCard } from '@angular/material/card';
+import { NonNullableFormBuilder } from '@angular/forms';
 
 const getObservable = (collection: AngularFirestoreCollection<Task>) => {
   const subject = new BehaviorSubject<Task[]>([]);
@@ -68,11 +69,20 @@ export class DashboardComponent {
         return;
       }
       if (result.delete) {
-        this.store.collection(list).doc(task.id).delete();
+        this.store.collection(list).doc(this.NullID(task.id)).delete();
       } else {
-        this.store.collection(list).doc(task.id).update(task);
+        this.store.collection(list).doc(this.NullID(task.id)).update(task);
       }
     });
+  }
+
+  NullID(val: any): any {
+    if(val == null) {
+      return 0;
+    }
+    else {
+      return val;
+    }
   }
 
   drop(event: CdkDragDrop<Task[]|null>): void {
@@ -85,7 +95,7 @@ export class DashboardComponent {
     const item = event.previousContainer.data[event.previousIndex];
     this.store.firestore.runTransaction(() => {
       const promise = Promise.all([
-        this.store.collection(event.previousContainer.id).doc(item.id).delete(),
+        this.store.collection(event.previousContainer.id).doc(this.NullID(item.id)).delete(),
         this.store.collection(event.container.id).add(item),
       ]);
       return promise;

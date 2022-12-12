@@ -1,13 +1,8 @@
-<mat-toolbar color="primary">
-    <mat-icon>local_fire_department</mat-icon>
-    <span>Kanban Fire</span>
-  </mat-toolbar>
   <div class="content-wrapper">
  		<input name="Filter Bar" type="text" [(ngModel)]="filterText" placeholder="filter"/>
 		<button (click)="newTask()" mat-button>
 			<mat-icon>add</mat-icon> Add Task
     </button>
-		
     <div class="container-wrapper">
 			<div class="container">
         <h2>Backlog</h2>

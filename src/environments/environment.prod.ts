@@ -1,11 +1,11 @@
 export const environment = {
   firebase: {
-		apiKey: "AIzaSyCzYkZMtaR2dMDMDQx88GSiuHoJ3Qv1ENw",
-		authDomain: "formapp-1b8c4.firebaseapp.com",
-		databaseURL: "https://formapp-1b8c4-default-rtdb.firebaseio.com",
-		projectId: "formapp-1b8c4",
-		storageBucket: "formapp-1b8c4.appspot.com",
-		messagingSenderId: "148761436429",
+    apiKey: "AIzaSyBCmTgZuA0e3-J3DdgAxj9TLvM-ZMYTfdk",
+    authDomain: "angular-work-order.firebaseapp.com",
+    projectId: "angular-work-order",
+    storageBucket: "angular-work-order.appspot.com",
+    messagingSenderId: "623370459015",
+    appId: "1:623370459015:web:70631fb18506f313aba522"
   },
   production: true
 };
