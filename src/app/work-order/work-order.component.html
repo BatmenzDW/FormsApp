@@ -3,10 +3,10 @@
   <table class="Contact" [cellSpacing]="0">
     <tr>
       <td><input type="text" id="invoiceID" #name="ngModel" name="invoiceID" [(ngModel)]="workOrderModel.invoiceID"
-          style="width: 100%; box-sizing: border-box;" placeholder="Invoice ID (number)"></td>
+        class="TableInput" placeholder="Invoice ID (number)"></td>
 
       <td><input type="text" id="phone" #name="ngModel" name="phone" [(ngModel)]="workOrderModel.phone"
-          style="width: 100%; box-sizing: border-box;" placeholder="Phone #"></td>
+          class="TableInput" placeholder="Phone #"></td>
     </tr>
     <tr>
       <td style="height: 100%;">
@@ -30,9 +30,9 @@
     </tr>
     <tr>
       <td><input type="text" id="orderNum" #name="ngModel" name="orderNum" [(ngModel)]="workOrderModel.orderNum"
-          style="width: 100%; box-sizing: border-box;" placeholder="Order #"></td>
+        class="TableInput" placeholder="Order #"></td>
       <td><input type="text" id="takenBy" #name="ngModel" name="takenBy" [(ngModel)]="workOrderModel.takenBy"
-          style="width: 100%; box-sizing: border-box;" placeholder="Taken By"></td>
+        class="TableInput" placeholder="Taken By"></td>
     </tr>
     <tr class="checkBoxes">
       <td colspan="2">
@@ -48,16 +48,16 @@
     </tr>
     <tr>
       <td><input type="text" id="jobName" #name="ngModel" name="jobName" [(ngModel)]="workOrderModel.jobName"
-          style="width: 100%; box-sizing: border-box;" placeholder="Job Name/#"></td>
+        class="TableInput" placeholder="Job Name/#"></td>
       <td><input type="text" id="jobLocation" #name="ngModel" name="jobLocation"
-          [(ngModel)]="workOrderModel.jobLocation" style="width: 100%; box-sizing: border-box;"
+          [(ngModel)]="workOrderModel.jobLocation" class="TableInput"
           placeholder="Job Location"></td>
     </tr>
     <tr>
       <td><input type="text" id="jobPhone" #name="ngModel" name="jobPhone" [(ngModel)]="workOrderModel.jobPhone"
-          style="width: 100%; box-sizing: border-box;" placeholder="Job Phone #"></td>
+        class="TableInput" placeholder="Job Phone #"></td>
       <td><input type="text" id="jobTo" #name="ngModel" name="jobTo" [(ngModel)]="workOrderModel.jobTo"
-          style="width: 100%" style="width: 100%; box-sizing: border-box;" placeholder="To"></td>
+        class="TableInput" placeholder="To"></td>
     </tr>
   </table>
 </div>
@@ -92,7 +92,7 @@
     <td></td>
     <td>
       <input size="7" type="number" id="totalMaterials" #name="ngModel" name="totalMaterials"
-        style="width: 100%; text-align: center; box-sizing: border-box; font-size: large;" placeholder="Total"
+        style="text-align: center; font-size: large;" class="TableInput" placeholder="Total"
         [(ngModel)]="workOrderModel.totalMaterials">
     </td>
   </tr>
@@ -108,7 +108,7 @@
     </td>
     <td colspan="2">
       <input type="text" id="jobDescription" #name="ngModel" name="jobDescription"
-        style="width: 100%; text-align: center; font-size: large; box-sizing: border-box;"
+        style="text-align: center; font-size: large;" class="TableInput"
         placeholder="Description of Work" [(ngModel)]="workOrderModel.jobDescription">
       <br>
     </td>
@@ -134,7 +134,7 @@
     <td></td>
     <td>
       <input size="7" type="number" id="totalOther" #name="ngModel" name="totalOther"
-        style="width: 100%; text-align: center; box-sizing: border-box; font-size: large;" placeholder="Total Other"
+        style="text-align: center; font-size: large;" class="TableInput" placeholder="Total Other"
         [(ngModel)]="workOrderModel.totalOther">
     </td>
   </tr>
@@ -170,7 +170,7 @@
     <td></td>
     <td>
       <input size="7" type="number" id="totalLabor" #name="ngModel" name="totalLabor"
-        style="width: 100%; text-align: center; box-sizing: border-box; font-size: large;" placeholder="Total Labor"
+        style="text-align: center; font-size: large;" class="TableInput" placeholder="Total Labor"
         [(ngModel)]="workOrderModel.totalLabor">
     </td>
   </tr>
@@ -180,7 +180,7 @@
     <td></td>
     <td>
       <input size="7" type="number" id="totalMaterials" #name="ngModel" name="totalMaterials"
-        style="width: 100%; text-align: center; box-sizing: border-box; font-size: large;" placeholder="Total Materials"
+        style="text-align: center; font-size: large;" class="TableInput" placeholder="Total Materials"
         [(ngModel)]="workOrderModel.totalMaterials">
     </td>
   </tr>
@@ -190,7 +190,7 @@
     <td></td>
     <td>
       <input size="7" type="number" id="totalOther" #name="ngModel" name="totalOther"
-        style="width: 100%; text-align: center; box-sizing: border-box; font-size: large;" placeholder="Total Other"
+        style="text-align: center; font-size: large;" class="TableInput" placeholder="Total Other"
         [(ngModel)]="workOrderModel.totalOther">
     </td>
   </tr>
@@ -200,7 +200,7 @@
     <td></td>
     <td>
       <input size="7" type="number" id="tax" #name="ngModel" name="tax"
-        style="width: 100%; text-align: center; box-sizing: border-box; font-size: large;" placeholder="Tax"
+        style="text-align: center; font-size: large;" class="TableInput" placeholder="Tax"
         [(ngModel)]="workOrderModel.tax">
     </td>
   </tr>
@@ -210,7 +210,7 @@
     <td></td>
     <td>
       <input size="7" type="number" id="total" #name="ngModel" name="total"
-        style="width: 100%; text-align: center; box-sizing: border-box; font-size: large;" placeholder="Total"
+        style="text-align: center; font-size: large;" class="TableInput" placeholder="Total"
         [(ngModel)]="workOrderModel.total">
     </td>
   </tr>
@@ -219,6 +219,3 @@
 <button class="addRow" (click)="addLabor()">Add Row</button>
 <br>
 <button class="save" (click)="onSave(workOrderModel)">Save</button>
-<!-- <hr/> -->
-<!-- <b>Current value of array</b>
-<pre>{{this.workOrderModel | json}}</pre> -->

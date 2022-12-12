@@ -22,9 +22,9 @@ export class WorkOrderComponent implements OnInit {
   constructor(private store: AngularFirestore, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.route.snapshot.paramMap.get('id') != null) {
+    this.workOrderModel.id = this.route.snapshot.paramMap.get('id');
+    if (this.workOrderModel.id != null) {
       this.workOrderModel.exists = true;
-      this.workOrderModel.id = this.route.snapshot.paramMap.get('id');
       this.list = this.nullList(this.route.snapshot.paramMap.get('list'));
       this.databaseDocument = this.store.doc<Task>(`${this.list}/${this.workOrderModel.id}`);
       this.databaseUpdate = this.databaseDocument.valueChanges();
@@ -49,11 +49,6 @@ export class WorkOrderComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     }
   }
-
-  showEditable: boolean = false;
-  editRowId: any;
-
-
 
   timeToDate(time: any) {
     var date = new Date(time.seconds * 1000);
@@ -138,11 +133,6 @@ export class WorkOrderComponent implements OnInit {
     this.workOrderModel.laborRates.push();
     this.workOrderModel.laborAmounts.push();
   }
-
-  // toggle(val: any) {
-  //   this.editRowId = val;
-  // }
-
 }
 
 
