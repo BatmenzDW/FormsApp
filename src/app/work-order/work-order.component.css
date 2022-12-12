@@ -19,10 +19,11 @@ table.t2 th,
 table.t3 th {
   font-size: 24px;
   padding: 0.3em;
-  background:rgb(35, 157, 245);
-  font-style:italic;
-  color:rgba(255, 255, 255, 0.825);
+  background: rgb(35, 157, 245);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.825);
 }
+
 table.t1 td,
 table.t2 td,
 table.t3 td {
@@ -100,6 +101,7 @@ mat-form-field {
   text-align: center;
   width: 300px;
 }
+
 .save:hover {
   box-shadow: inset 0 0 0 50px #00743a;
 }
