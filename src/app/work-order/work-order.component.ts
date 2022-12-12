@@ -155,7 +155,7 @@ export class WorkOrder {
   constructor(
     public id?: string | null,
     public exists: boolean = false,
-    public invoiceID?: number,
+    public invoiceID?: number | null,
     public phone?: string,
     public date?: any,
     public takenBy?: string,
@@ -163,7 +163,7 @@ export class WorkOrder {
     public dayWorkBol: boolean = false,
     public contractBol: boolean = false,
     public extraBol: boolean = false,
-    public jobName?: string,
+    public jobName?: string | null,
     public jobLocation?: string,
     public jobPhone?: string,
     public startingDate?: any,

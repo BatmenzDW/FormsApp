@@ -1,4 +1,4 @@
-<mat-card class="item" *ngIf="task && (task.invoiceID.toString().includes(filterText) || task.jobName.includes(filterText))" (dblclick)="edit.emit(task)">
+<mat-card class="item" *ngIf="task && (defineTask(task.invoiceID).toString().includes(filterText) || defineTask(task.jobName).includes(filterText))" (dblclick)="edit.emit(task)">
     <h2>{{ task.invoiceID }}</h2>
     <p>
       {{ task.jobName }}
