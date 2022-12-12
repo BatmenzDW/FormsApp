@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { Task } from '../task/task';
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskDialogResult, TaskDialogComponent } from '../task-dialog/task-dialog.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map, observable } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { __values } from 'tslib';
+import { MatCard } from '@angular/material/card';
 import { NonNullableFormBuilder } from '@angular/forms';
 
 const getObservable = (collection: AngularFirestoreCollection<Task>) => {
@@ -23,10 +25,16 @@ const getObservable = (collection: AngularFirestoreCollection<Task>) => {
   styleUrls: ['./dashboard.component.css'],
 })
 
+
+
 export class DashboardComponent {
+
+	filterText: string = '';
+
   todo = getObservable(this.store.collection('todo')) as Observable<Task[]>;
   inProgress = getObservable(this.store.collection('inProgress')) as Observable<Task[]>;
   done = getObservable(this.store.collection('done')) as Observable<Task[]>;
+
 
   constructor(private dialog: MatDialog, private store: AngularFirestore, private router: Router) {}
 
@@ -99,4 +107,5 @@ export class DashboardComponent {
       event.currentIndex
     );
   }
+
 }

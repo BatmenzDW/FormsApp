@@ -217,5 +217,5 @@ export class Labor {
     public hrs: number = 0,
     public rate: number = 0,
     public amount: number = 0
-  ) { }
+  ) {}
 }

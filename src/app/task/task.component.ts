@@ -8,5 +8,6 @@ import { Task } from './task';
 })
 export class TaskComponent {
   @Input() task: Task | null = null;
+	@Input() filterText: string = '';
   @Output() edit = new EventEmitter<Task>();
 }
