@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   templateUrl: './work-order.component.html',
   styleUrls: ['./work-order.component.css']
 })
+
 export class WorkOrderComponent implements OnInit {
 
   workOrderModel = new WorkOrder();
@@ -18,15 +19,15 @@ export class WorkOrderComponent implements OnInit {
   databaseDocument: any;
   databaseUpdate: any;
 
-  constructor(private store: AngularFirestore, private route: ActivatedRoute, private router: Router) {}
+  constructor(private store: AngularFirestore, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     if (this.route.snapshot.paramMap.get('id') != null) {
-    this.workOrderModel.exists = true;
-    this.workOrderModel.id = this.route.snapshot.paramMap.get('id');
-    this.list = this.nullList(this.route.snapshot.paramMap.get('list'));
-    this.databaseDocument = this.store.doc<Task>(`${this.list}/${this.workOrderModel.id}`);
-    this.databaseUpdate = this.databaseDocument.valueChanges();
+      this.workOrderModel.exists = true;
+      this.workOrderModel.id = this.route.snapshot.paramMap.get('id');
+      this.list = this.nullList(this.route.snapshot.paramMap.get('list'));
+      this.databaseDocument = this.store.doc<Task>(`${this.list}/${this.workOrderModel.id}`);
+      this.databaseUpdate = this.databaseDocument.valueChanges();
       this.databaseUpdate.subscribe((data: Task) => {
         this.workOrderModel = this.nullOrder(data);
         this.nullComponents();
@@ -35,7 +36,7 @@ export class WorkOrderComponent implements OnInit {
     }
   }
 
-  onSave(task : Task): void {
+  onSave(task: Task): void {
     //console.log("Saving Work Order");
     if (this.workOrderModel.exists) {
       this.store.collection(this.list).doc(this.nullString(this.workOrderModel.id)).update(this.workOrderModel);
@@ -66,7 +67,7 @@ export class WorkOrderComponent implements OnInit {
     this.workOrderModel.dateCompleted = this.timeToDate(this.workOrderModel.dateCompleted);
   }
 
-  nullList(list: any){
+  nullList(list: any) {
     if (list === null)
       return 'todo'
     else
@@ -75,19 +76,19 @@ export class WorkOrderComponent implements OnInit {
 
   nullComponents() {
     if (this.workOrderModel.materialIDs == null) {
-      this.databaseDocument.update({materialIDs: []});
-      this.databaseDocument.update({materialDescriptions: []});
-      this.databaseDocument.update({materialQuantities: []});
-      this.databaseDocument.update({materialPrices: []});
-      this.databaseDocument.update({materialAmounts: []});
-      this.databaseDocument.update({otherIDs: []});
-      this.databaseDocument.update({otherDescriptions: []});
-      this.databaseDocument.update({otherPrices: []});
-      this.databaseDocument.update({laborIDs: []});
-      this.databaseDocument.update({laborDescriptions: []});
-      this.databaseDocument.update({laborHrs: []});
-      this.databaseDocument.update({laborRates: []});
-      this.databaseDocument.update({laborAmounts: []});
+      this.databaseDocument.update({ materialIDs: [] });
+      this.databaseDocument.update({ materialDescriptions: [] });
+      this.databaseDocument.update({ materialQuantities: [] });
+      this.databaseDocument.update({ materialPrices: [] });
+      this.databaseDocument.update({ materialAmounts: [] });
+      this.databaseDocument.update({ otherIDs: [] });
+      this.databaseDocument.update({ otherDescriptions: [] });
+      this.databaseDocument.update({ otherPrices: [] });
+      this.databaseDocument.update({ laborIDs: [] });
+      this.databaseDocument.update({ laborDescriptions: [] });
+      this.databaseDocument.update({ laborHrs: [] });
+      this.databaseDocument.update({ laborRates: [] });
+      this.databaseDocument.update({ laborAmounts: [] });
     }
   }
 
@@ -116,31 +117,31 @@ export class WorkOrderComponent implements OnInit {
   addMaterial() {
     let indexForId = this.workOrderModel.materialIDs.length + 1
     this.workOrderModel.materialIDs.push(indexForId);
-    this.workOrderModel.materialDescriptions.push('');
-    this.workOrderModel.materialQuantities.push(0);
-    this.workOrderModel.materialPrices.push(0);
-    this.workOrderModel.materialAmounts.push(0);
+    this.workOrderModel.materialDescriptions.push();
+    this.workOrderModel.materialQuantities.push();
+    this.workOrderModel.materialPrices.push();
+    this.workOrderModel.materialAmounts.push();
   }
 
   addOther() {
     let indexForId = this.workOrderModel.otherIDs.length + 1
     this.workOrderModel.otherIDs.push(indexForId);
-    this.workOrderModel.otherDescriptions.push('');
-    this.workOrderModel.otherPrices.push(0);
-    }
+    this.workOrderModel.otherDescriptions.push();
+    this.workOrderModel.otherPrices.push();
+  }
 
   addLabor() {
     let indexForId = this.workOrderModel.laborIDs.length + 1
     this.workOrderModel.laborIDs.push(indexForId);
-    this.workOrderModel.laborDescriptions.push('');
-    this.workOrderModel.laborHrs.push(0);
-    this.workOrderModel.laborRates.push(0);
-    this.workOrderModel.laborAmounts.push(0);
+    this.workOrderModel.laborDescriptions.push();
+    this.workOrderModel.laborHrs.push();
+    this.workOrderModel.laborRates.push();
+    this.workOrderModel.laborAmounts.push();
   }
 
-  toggle(val: any) {
-    this.editRowId = val;
-  }
+  // toggle(val: any) {
+  //   this.editRowId = val;
+  // }
 
 }
 
@@ -188,17 +189,17 @@ export class WorkOrder {
     public laborHrs: number[] = [],
     public laborRates: number[] = [],
     public laborAmounts: number[] = []
-  ) {}
+  ) { }
 }
 
 export class Material {
   constructor(
-    public id: number = 0,
-    public quantity: number = 0,
-    public description: string = '',
-    public price: number = 0,
-    public amount: number = 0
-  ) {}
+    public id: number,
+    public quantity: number,
+    public description: string,
+    public price: number,
+    public amount: number
+  ) { }
 }
 
 export class OtherCharges {
@@ -206,7 +207,7 @@ export class OtherCharges {
     public id: number = 0,
     public description: string = '',
     public price: number = 0
-  ) {}
+  ) { }
 }
 
 export class Labor {
@@ -216,5 +217,5 @@ export class Labor {
     public hrs: number = 0,
     public rate: number = 0,
     public amount: number = 0
-  ) {}
+  ) { }
 }
